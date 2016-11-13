@@ -15,6 +15,7 @@ public class Car implements Agent {
 	private java.awt.Color color = new java.awt.Color((int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255));
 	private CarAcceptor currentRoad;  //reference to current road interface
 	private double firstPosition;  //reference to first car position (front of pack)
+	private double stopDistance;
 	
 	public double getPosition() {
 		return position;
@@ -39,5 +40,9 @@ public class Car implements Agent {
 	
 	public Double getFrontPosition() {
 		return firstPosition;
+	}
+	
+	public Double getStopDistance() {
+		return stopDistance;
 	}
 }
