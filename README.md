@@ -25,7 +25,7 @@ We will consider two kinds of traffic patterns: simple and alternating.
 
 In the simple traffic pattern, all traffic goes in the same direction. In the following picture, + represent a car source and @ represents
 a car sink. Cars flow from sources to sinks. Here is a 2x4 simple grid:
-
+```
        +     +     +     +
        |     |     |     |
        |     |     |     |
@@ -36,9 +36,9 @@ a car sink. Cars flow from sources to sinks. Here is a 2x4 simple grid:
        |     |     |     |     
        |     |     |     |     
        @     @     @     @
-       
+```
 In the alternating traffic pattern, roads alternate direction. Here is a 3x5 alternating grid:
-
+```
        +     @     +     @     +
        |     |     |     |     |
        |     |     |     |     |
@@ -52,5 +52,5 @@ In the alternating traffic pattern, roads alternate direction. Here is a 3x5 alt
        |     |     |     |     |      
        |     |     |     |     |      
        @     +     @     +     @
-       
+```
 Sources generate cars and place them on a road. Sinks delete cars from the simulation.
