@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * A car remembers its position from the beginning of its road.
  * Cars have random velocity and random movement pattern:
@@ -11,27 +12,42 @@ public class Car implements Agent {
 
 	private boolean backAndForth = Math.round(Math.random())==1 ? true : false;
 	private double position = 0;
-	private double velocity = (int) Math.ceil(Math.random() * MP.maxVelocity);
+	private double carVelocity; //= (int) Math.ceil(Math.random() * MP.maxVelocity);
 	private java.awt.Color color = new java.awt.Color((int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255));
 	private CarAcceptor currentRoad;  //reference to current road interface
 	private double firstPosition;  //reference to first car position (front of pack)
 	private double stopDistance;
+	private double brakeDistance;
+	private boolean vertical;  // is car on a vertical road (or horizontal)?
+	private double carLength;
+	private MP MP;
+	
+	//we need a constructor to create a new car object
+	Car(boolean v, MP m){
+ 		vertical = v;
+ 		MP = m;
+ 		carLength = MP.createRandom(MP.getCarLengthMin(), MP.getCarLengthMax());
+ 		carVelocity = MP.createRandom(MP.getMaxVelocityMin(),MP.getMaxVelocityMax());
+ 		brakeDistance = MP.createRandom(MP.getBrakeDistanceMin(), MP.getBrakeDistanceMax());
+ 		stopDistance = MP.createRandom(MP.getStopDistanceMin(), MP.getStopDistanceMax());
+	} 
 	
 	public double getPosition() {
-		return position;
+		return firstPosition;
 	}
 	public java.awt.Color getColor() {
 		return color;
 	}
 	public void run(double time) {
-		if (backAndForth) {
+		//setFirstPosition(changeVelocity);
+		/*if (backAndForth) {
 			if (((position + velocity) < 0) || ((position + velocity) > (MP.roadLength-MP.carLength)))
 				velocity *= -1;
 		} else {
 			if ((position + velocity) > (MP.roadLength-MP.carLength))
 				position = 0;
 		}
-		position += velocity;
+		position += velocity;*/
 	}
 	
 	public CarAcceptor getCurrentRoad(){
