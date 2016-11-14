@@ -6,7 +6,7 @@ followed by the Smalltalk environment, together pioneered the development and di
 designed as simulation languages. 
 
 We are modeling a traffic grid with a variable number of rows and columns. For example, a 2x3 grid would look something like this:
-
+```
        |     |     |
        |     |     |
   -----#-----#-----#-----
@@ -15,7 +15,7 @@ We are modeling a traffic grid with a variable number of rows and columns. For e
   -----#-----#-----#-----
        |     |     |     
        |     |     |     
-
+```
 The # represent intersections, and the lines represent roads (or road segments).
 
 We will assume that each car goes in a consistent direction (north to south, east to west, etc). Cars do not turn. All roads are one-way and 
