@@ -60,7 +60,7 @@ public class SimpleModel extends Observable {
 		Road r1 = new Road();
 		builder.addHorizontalRoad(r1, 0, 1, false);
 		Car c = new Car();
-		r1.accept(c);
+		r1.accept(c, time);
 		agents.add(c);
 		Road r2 = new Road();
 		builder.addHorizontalRoad(r2, 1, 1, false);

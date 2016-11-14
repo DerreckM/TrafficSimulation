@@ -120,7 +120,7 @@ public class Model extends Observable {
 		for (Road l : roads) {
 			Car car = new Car();
 			agents.add(car);
-			l.accept(car);
+			l.accept(car, time);
 		}
 	}
 }
