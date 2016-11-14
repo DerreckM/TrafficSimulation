@@ -10,8 +10,8 @@ package model;
 public class Car implements Agent {
 	Car() { } // Created only by this package
 
-	private boolean backAndForth = Math.round(Math.random())==1 ? true : false;
-	private double position = 0;
+	//private boolean backAndForth = Math.round(Math.random())==1 ? true : false;
+	//private double position = 0;  can probably omit this
 	private double carVelocity; //= (int) Math.ceil(Math.random() * MP.maxVelocity);
 	private java.awt.Color color = new java.awt.Color((int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255));
 	private CarAcceptor currentRoad;  //reference to current road interface
@@ -50,15 +50,31 @@ public class Car implements Agent {
 		position += velocity;*/
 	}
 	
-	public CarAcceptor getCurrentRoad(){
+	public double getCarVelocity() {
+		return carVelocity;
+	}
+	
+	public CarAcceptor getCurrentRoad() {
  		return currentRoad;
  	}
 	
-	public Double getFrontPosition() {
+	public double getCarLength() {
+		return carLength;
+	}
+	
+	public double getFirstPosition() {
 		return firstPosition;
 	}
 	
-	public Double getStopDistance() {
+	public double getStopDistance() {
 		return stopDistance;
+	}
+	
+	public double getBrakeDistance() {
+		return brakeDistance;
+	}
+	
+	public boolean isVertical() {
+		return vertical;
 	}
 }
