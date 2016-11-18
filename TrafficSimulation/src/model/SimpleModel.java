@@ -26,7 +26,7 @@ public class SimpleModel extends Observable {
 			builder = new NullAnimatorBuilder();
 		}
 		agents = new ArrayList<Agent>();
-		setup(builder);
+		//setup(builder);
 		animator = builder.getAnimator();
 		super.addObserver(animator);
 	}
@@ -55,7 +55,7 @@ public class SimpleModel extends Observable {
 		animator.dispose();
 		disposed = true;
 	}
-
+/*
 	private void setup(AnimatorBuilder builder) {
 		Road r1 = new Road();
 		builder.addHorizontalRoad(r1, 0, 1, false);
@@ -73,4 +73,6 @@ public class SimpleModel extends Observable {
 		//   oldroad = newroad;
 		// }
 	}
+	*/
 }
+
