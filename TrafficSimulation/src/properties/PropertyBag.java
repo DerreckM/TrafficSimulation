@@ -94,5 +94,15 @@ public class PropertyBag {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public double getRoadLengthMax() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	public double getRoadLengthMin() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

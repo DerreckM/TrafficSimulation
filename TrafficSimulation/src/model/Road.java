@@ -1,9 +1,11 @@
 package model;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Set;
 
+import properties.PropertyBag;
 import model.Data.Orientation;
 
 /**
@@ -11,28 +13,41 @@ import model.Data.Orientation;
  */
 public class Road implements CarAcceptor {
 	
+	private Set<Car> cars;
+	private double lastPosition;
+	private RoadEnd nextRoad;
+	private PropertyBag propertyBag = PropertyBag.makePropertyBag();
 	
+	public Road() {
+		this.lastPosition = Math.random() * this.propertyBag.getRoadLengthMax();
+		this.lastPosition = Math.max(this.lastPosition, this.propertyBag.getRoadLengthMin());
+		this.cars = new HashSet<Car>();
+	}
 	
-	@Override
 	public boolean accept(Car c, Double firstPosition) {
-		// TODO Auto-generated method stub
-		return false;
+		if (this.cars != null) {
+			this.cars.remove(c);
+		}
+		if(firstPosition> lastPosition) {
+			return nextRoad.accept(c, firstPosition-lastPosition);
+		} else {
+			c.setCurrentRoad(this);
+			c.setFirstPosition(firstPosition);
+			cars.add(c);
+			return true;
+		}
 	}
 
-	@Override
 	public Double distanceToObstacle(Double fromPosition,
 			Orientation orientation) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Double getLastPosition() {
-		// TODO Auto-generated method stub
-		return null;
+		return lastPosition;
 	}
 
-	@Override
 	public RoadEnd getNextRoad(Orientation orientation) {
 		// TODO Auto-generated method stub
 		return null;
