@@ -20,7 +20,7 @@ public class Car implements Agent {
 	//private boolean backAndForth = Math.round(Math.random())==1 ? true : false;
 	//private double position = 0;  can probably omit this
 	private double maxVelocity; //= (int) Math.ceil(Math.random() * MP.maxVelocity);
-	private java.awt.Color color = new java.awt.Color((int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255));
+	private Color color; //= new java.awt.Color((int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255),(int)Math.ceil(Math.random()*255));
 	private CarAcceptor currentRoad;  //reference to current road interface
 	private RoadEnd currentIntersection;
 	private double firstPosition;  //reference to first car position (front of pack)
@@ -61,31 +61,89 @@ public class Car implements Agent {
 		this.time = this.propertyBag.getTimeServer();
 	}
 	
-	public double getPosition() {
-		return firstPosition;
+	//we need to set the first car position and logic
+	public void setFirstPosition(Double position) {
+		double roadEnd = this.atIntersection ? this.currentIntersection.getLastPosition() : this.currentRoad.getLastPosition();
+		if (position > roadEnd) {
+			if (this.atIntersection) {
+				RoadEnd currentIntersection = this.currentIntersection;
+				this.currentIntersection.getNextRoad(this.orientation).accept(this, position - roadEnd);
+				currentIntersection.remove(this);
+				this.roadsTraversed++;
+				return;
+			}
+			else {
+				CarAcceptor road = this.currentRoad;
+				this.currentRoad.getNextRoad(this.orientation).accept(this, position - roadEnd);
+				road.remove(this);
+				this.roadsTraversed++;
+				return;
+			}
+		}
+		else {
+			this.firstPosition = position;
+		}
 	}
-	public java.awt.Color getColor() {
+	
+
+	public java.awt.Color getcolor() {
 		return color;
 	}
 	
 	private Color getRandomColor() {
-		return color;	
+		Color a = new java.awt.Color(255,255,50);
+		Color b = new java.awt.Color(255,180,101);
+		Color c = new java.awt.Color(50,255,255);
+		Color d = new java.awt.Color(255,105,188);
+
+		Double r = Math.random();
 		
-	}
-	public void run(double time) {
-		//setFirstPosition(changeVelocity);
-		/*if (backAndForth) {
-			if (((position + velocity) < 0) || ((position + velocity) > (MP.roadLength-MP.carLength)))
-				velocity *= -1;
-		} else {
-			if ((position + velocity) > (MP.roadLength-MP.carLength))
-				position = 0;
+		if (r <= 0.25) {
+			return a;
 		}
-		position += velocity;*/
+		if (r <= 0.5) {
+			return b;
+		}
+		if (r <= 0.75) {
+			return c;
+		}
+		return d;
 	}
 	
-	public double getCarVelocity() {
-		return brakeDistance;
+	private double getCurrentVelocity() {
+		double velocity;
+		double distanceToObstacle;
+		if (this.atIntersection) {
+			distanceToObstacle = this.currentIntersection.distanceToObstacle(this.firstPosition, this.orientation);
+		}
+		else {
+			 distanceToObstacle = this.currentRoad.distanceToObstacle(this.firstPosition, this.orientation);
+		}
+		if (distanceToObstacle == Double.POSITIVE_INFINITY) {
+			return this.firstPosition + this.maxVelocity * this.timeStep;
+		}
+		if (distanceToObstacle < this.maxVelocity && 
+				(distanceToObstacle > this.brakeDistance || distanceToObstacle > this.stopDistance))
+			velocity = distanceToObstacle / 2;
+		else {
+			velocity = (this.maxVelocity / (this.brakeDistance - this.stopDistance))
+					* (this.currentRoad.distanceToObstacle(this.firstPosition, this.orientation) - this.stopDistance);
+		}
+		velocity = Math.max(0.0, velocity);
+		velocity = Math.min(this.maxVelocity, velocity);
+		Double nextFrontPosition = this.firstPosition + velocity * this.timeStep;
+		return nextFrontPosition;
+	}
+
+	
+	public void run(double time) {
+		double currentVelocity = getCurrentVelocity();
+		setFirstPosition(currentVelocity);
+		this.time.enqueue(this.time.currentTime() + this.timeStep, this);
+	}
+	
+	public double getMaxVelocity() {
+		return this.maxVelocity;
 		
 	}
 	
@@ -94,11 +152,15 @@ public class Car implements Agent {
  	}
 	
 	public double getCarLength() {
-		return carLength;
+		return this.carLength;
 	}
 	
 	public double getFirstPosition() {
-		return firstPosition;
+		return this.firstPosition;
+	}
+	
+	public double getLastPosition() {
+		return this.firstPosition - this.carLength;
 	}
 	
 	public double getStopDistance() {
@@ -106,7 +168,28 @@ public class Car implements Agent {
 	}
 	
 	public double getBrakeDistance() {
-		return brakeDistance;
+		return this.brakeDistance;
 	}
 	
+	public double getTimeStep() {
+		return this.timeStep;
+	}
+	
+	public double getRoadsTraversed() {
+		return this.roadsTraversed;
+	}
+	
+	public Orientation getOrientation() {
+		return this.orientation;
+	}
+	
+	public void setCurrentRoad(CarAcceptor roadCarIsOn) {
+		this.currentRoad = roadCarIsOn;
+		this.atIntersection = false;
+	}
+	
+	public void setCurrentIntersection(RoadEnd intersectionCarIsAt) {
+		this.currentIntersection = intersectionCarIsAt;
+		this.atIntersection = true;
+	}
 }
