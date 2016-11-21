@@ -11,15 +11,11 @@ public class PropertyBag {
 	private static PropertyBag pb = null;
 	private TimeServer timeServer = new TimeServerLinked();
 
-	private Double timeStep = 0.5;
-	private Double runTime = 500.0;
-	private Integer gridRow = 2;
-	private Integer gridColumn = 3;
 	private TrafficType trafficPattern = TrafficType.ALTERNATE;
 	private Double carGenerationDelayMin = 5.0;
 	private Double carGenerationDelayMax = 9.0;
-	private Double roadSegmentLengthMin = 100.0;
-	private Double roadSegmentLengthMax = 200.0;
+	private Double roadLengthMin = 100.0;
+	private Double roadLengthMax = 200.0;
 	private Double intersectionLengthMin = 10.0;
 	private Double intersectionLengthMax = 15.0;
 	private Double carLengthMin = 10.0;
@@ -33,7 +29,12 @@ public class PropertyBag {
 	private Double lightGreenTimeMin = 10.0;
 	private Double lightGreenTimeMax = 20.0;
 	private Double lightYellowTimeMin = 3.0;
-	private Double lightYellowTimeMax = 5.0;	
+	private Double lightYellowTimeMax = 5.0;
+	
+	private Double timeStep = 0.5;
+	private Double runTime = 500.0;
+	private Integer gridRow = 2;
+	private Integer gridColumn = 3;
 
 	private PropertyBag() {
 
@@ -61,13 +62,11 @@ public class PropertyBag {
 	}
 
 	public double getCarMaxVelocityMax() {
-		// TODO Auto-generated method stub
-		return 0;
+		return carMaxVelocityMax;
 	}
 
 	public double getCarMaxVelocityMin() {
-		// TODO Auto-generated method stub
-		return 0;
+		return carMaxVelocityMin;
 	}
 
 	public double getCarStopDistanceMax() {
@@ -76,33 +75,64 @@ public class PropertyBag {
 	}
 
 	public double getCarStopDistanceMin() {
-		// TODO Auto-generated method stub
-		return 0;
+		return carStopDistanceMin;
 	}
 
 	public double getCarBrakeDistanceMax() {
-		// TODO Auto-generated method stub
-		return 0;
+		return carStopDistanceMax;		
 	}
 
 	public double getCarBrakeDistanceMin() {
-		// TODO Auto-generated method stub
-		return 0;
+		return carBrakeDistanceMin;
 	}
 
 	public double getTimeStep() {
-		// TODO Auto-generated method stub
-		return 0;
+		return timeStep;
+	}
+	
+	public void setTimeStep(Double timeStep) {
+		this.timeStep = timeStep;
 	}
 
 	public double getRoadLengthMax() {
-		// TODO Auto-generated method stub
-		return 0;
+		return roadLengthMax;
 	}
 	
 	public double getRoadLengthMin() {
-		// TODO Auto-generated method stub
-		return 0;
+		return roadLengthMin;	
 	}
 	
+	public Double getLightGreenTimeMin() {
+		return lightGreenTimeMin;
+	}
+
+	public void setLightGreenTimeMin(Double lightGreenTimeMin) {
+		this.lightGreenTimeMin = lightGreenTimeMin;
+	}
+
+	public Double getLightGreenTimeMax() {
+		return lightGreenTimeMax;
+	}
+
+	public void setLightGreenTimeMax(Double lightGreenTimeMax) {
+		this.lightGreenTimeMax = lightGreenTimeMax;
+	}
+
+	public Double getTrafficLightYellowTimeMin() {
+		return lightYellowTimeMin;
+	}
+
+	public void setLightYellowTimeMin(Double lightYellowTimeMin) {
+		this.lightYellowTimeMin = lightYellowTimeMin;
+	}
+
+	public Double getLightYellowTimeMax() {
+		return lightYellowTimeMax;
+	}
+
+	public void setLightYellowTimeMax(Double lightYellowTimeMax) {
+		this.lightYellowTimeMax = lightYellowTimeMax;
+	}
+	
+
 }
