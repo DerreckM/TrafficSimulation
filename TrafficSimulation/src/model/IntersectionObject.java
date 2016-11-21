@@ -35,4 +35,16 @@ public class IntersectionObject implements RoadEnd {
 		return 0;
 	}
 
+	@Override
+	public LightObject getLight() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setNextRoad(CarAcceptor l, Orientation ew) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

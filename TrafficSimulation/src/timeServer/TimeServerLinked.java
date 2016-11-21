@@ -2,6 +2,7 @@ package timeServer;
 
 import java.util.Observable;
 
+import animator.Animator;
 import model.Agent;
 
 public final class TimeServerLinked extends Observable implements TimeServer {
@@ -85,5 +86,11 @@ public final class TimeServerLinked extends Observable implements TimeServer {
 			super.notifyObservers();
 		}
 		currentTime = endtime;
+	}
+
+	@Override
+	public void addObserver(Animator animator) {
+		// TODO Auto-generated method stub
+		
 	}
 }
