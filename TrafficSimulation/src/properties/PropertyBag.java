@@ -133,6 +133,19 @@ public class PropertyBag {
 	public void setLightYellowTimeMax(Double lightYellowTimeMax) {
 		this.lightYellowTimeMax = lightYellowTimeMax;
 	}
+
+	public Double getRunTime() {
+		return runTime;
+	}
+
+	public void setRunTime(Double runTime) {
+		this.runTime = runTime;
+	}
+
+	public Object getTrafficPattern() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

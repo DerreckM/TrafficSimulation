@@ -12,9 +12,9 @@ public class MP {
 	public static double roadLength = 200;
 	
 	/** Maximum car velocity, in meters/second */
-	public static double maxVelocity = 6;
+	public static double maxVelocity = 5;
 	
-
+/*
 	private double carLengthMin; 		// the minimum length of a car (in meters)
 	private double carLengthMax; 		// the maximum length of a car (in meters)
 	private double maxVelocityMin;		// the minimum top car velocity (in meters/second)
@@ -60,6 +60,6 @@ public class MP {
 	public double createRandom(double min, double max){
 		return min+(int)(Math.random() * ((max - min) + 1));
 	}
-	
+*/	
 }
 
