@@ -1,6 +1,8 @@
 package model;
 
 import util.Animator;
+import model.CarAcceptor;
+import model.RoadEnd;
 
 /**
  * An interface for building a {@link Animator} for this {@link Model}.

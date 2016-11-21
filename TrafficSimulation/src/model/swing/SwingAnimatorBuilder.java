@@ -1,21 +1,22 @@
 package model.swing;
-
+/*
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import model.AnimatorBuilder;
-import model.Car;
+import model.CarAcceptor;
 import model.Light;
 import model.MP;
-import model.Road;
+import model.RoadEnd;
 import util.Animator;
 import util.SwingAnimator;
 import util.SwingAnimatorPainter;
-
+*/
 /**
  * A class for building Animators.
  */
+/*
 public class SwingAnimatorBuilder implements AnimatorBuilder {
 	MyPainter painter;
 	public SwingAnimatorBuilder() {
@@ -55,9 +56,11 @@ public class SwingAnimatorBuilder implements AnimatorBuilder {
 
 
 	/** Class for drawing the Model. */
+/*
 	private static class MyPainter implements SwingAnimatorPainter {
 
 		/** Pair of a model element <code>x</code> and a translator <code>t</code>. */
+/*
 		private static class Element<T> {
 			T x;
 			Translator t;
@@ -109,4 +112,4 @@ public class SwingAnimatorBuilder implements AnimatorBuilder {
 		}
 	}
 }
-
+*/

@@ -1,17 +1,18 @@
 package model.text;
-
+/*
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import model.AnimatorBuilder;
 import model.Car;
 import model.Light;
-import model.Road;
+//import model.Road;
 import util.Animator;
-
+*/
 /**
  * A class for building Animators.
  */
+/*
 public class TextAnimatorBuilder implements AnimatorBuilder {
 	TextAnimator animator;
 	public TextAnimatorBuilder() {
@@ -32,12 +33,13 @@ public class TextAnimatorBuilder implements AnimatorBuilder {
 	public void addVerticalRoad(Road l, int i, int j, boolean southToNorth) {
 		animator.addRoad(l,i,j);
 	}
-
+*/
 
 	/** Class for drawing the Model. */
+/*
 	private static class TextAnimator implements Animator {
 
-		/** Triple of a model element <code>x</code> and coordinates. */
+		// Triple of a model element <code>x</code> and coordinates. 
 		private static class Element<T> {
 			T x;
 			int i;
@@ -82,3 +84,4 @@ public class TextAnimatorBuilder implements AnimatorBuilder {
 		}
 	}
 }
+*/
