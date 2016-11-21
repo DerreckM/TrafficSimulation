@@ -4,10 +4,12 @@ import model.Data.Orientation;
 
 public interface RoadEnd {
 
-	double getLastPosition();
-	CarAcceptor getNextRoad(Orientation orientation);
-	void remove(Car car);
-	boolean accept(Car car, double d);
-	double distanceToObstacle(double firstPosition, Orientation orientation);
+	public double getLastPosition();
+	public CarAcceptor getNextRoad(Orientation orientation);
+	public void remove(Car car);
+	public boolean accept(Car car, double d);
+	public double distanceToObstacle(double firstPosition, Orientation orientation);
+	public LightObject getLight();
+	public void setNextRoad(CarAcceptor l, Orientation ew);
 
 }
