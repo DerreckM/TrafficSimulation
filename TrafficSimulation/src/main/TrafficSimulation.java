@@ -1,8 +1,8 @@
 package main;
 
-import model.Model;
-import model.swing.SwingAnimatorBuilder;
-import model.text.TextAnimatorBuilder;
+//import model.Model;
+//import model.swing.SwingAnimatorBuilder;
+//import model.text.TextAnimatorBuilder;
 
 /**
  * A static class to demonstrate the visualization aspect of
@@ -11,6 +11,7 @@ import model.text.TextAnimatorBuilder;
 public class TrafficSimulation{
 	private TrafficSimulation() {}
 	public static void main(String[] args) {
+/*		
 		{
 			Model m = new Model(new TextAnimatorBuilder(), 0, 1);
 			m.run(10);
@@ -38,6 +39,8 @@ public class TrafficSimulation{
 			m.dispose();
 		}
 		System.exit(0);
-	}
+	
+*/
+	}	
 }
 
