@@ -37,7 +37,7 @@ public class Car implements Agent {
 	//we need a constructor to create a new car object
 	Car(Orientation orientation) {
 		
-		this.carLength = Math.random() * propertyBag.getCarLengthMax();
+		this.carLength = Math.random() * propertyBag.getcarLengthMax();
 		this.carLength = Math.max(propertyBag.getCarLengthMin(), this.carLength);
 		
 		this.maxVelocity = Math.random() * propertyBag.getCarMaxVelocityMax();
@@ -45,10 +45,10 @@ public class Car implements Agent {
 				
 		this.stopDistance = Math.random() * propertyBag.getCarStopDistanceMax();
 		this.stopDistance = Math.max(propertyBag.getCarStopDistanceMin(), this.stopDistance);
-		this.stopDistance = Math.max(propertyBag.getCarLengthMax() / 2, this.stopDistance);
+		this.stopDistance = Math.max(propertyBag.getcarLengthMax() / 2, this.stopDistance);
 		
 		
-		this.brakeDistance = Math.random() * propertyBag.getCarBrakeDistanceMax();
+		this.brakeDistance = Math.random() * propertyBag.getcarBrakeDistanceMax();
 		this.brakeDistance = Math.max(propertyBag.getCarBrakeDistanceMin(), this.brakeDistance);
 		this.brakeDistance = Math.max(this.stopDistance, this.brakeDistance);
 		

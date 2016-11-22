@@ -106,7 +106,7 @@ public class Model extends Observable {
 					roads.add(l);
 				}
 			}
-			if (propertyBag.getTrafficPattern() == TrafficType.ALTERNATE) {
+			if (propertyBag.gettrafficPattern() == TrafficType.ALTERNATE) {
 				eastToWest = !eastToWest;
 			}
 		}
@@ -155,7 +155,7 @@ public class Model extends Observable {
 					roads.add(l);
 				}
 			}
-			if (propertyBag.getTrafficPattern() == TrafficType.ALTERNATE) {
+			if (propertyBag.gettrafficPattern() == TrafficType.ALTERNATE) {
 				southToNorth = !southToNorth;
 			}
 		}

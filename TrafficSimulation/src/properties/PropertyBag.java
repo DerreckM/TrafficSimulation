@@ -50,16 +50,63 @@ public class PropertyBag {
 	public TimeServer getTimeServer() {
 		return this.timeServer;
 	}
-
-	public double getCarLengthMax() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	public Integer getGridRow() {
+		return gridRow;
 	}
 
-	public int getCarLengthMin() {
-		// TODO Auto-generated method stub
-		return 0;
+	public void setGridRow(Integer gridRow) {
+		this.gridRow = gridRow;
 	}
+
+	public Integer getGridColumn() {
+		return gridColumn;
+	}
+
+	public void setGridColumn(Integer gridColumn) {
+		this.gridColumn = gridColumn;
+	}
+	
+	public TrafficType gettrafficPattern() {
+		return trafficPattern;
+	}
+
+	public void setTrafficPattern(TrafficType trafficPattern) {
+		this.trafficPattern = trafficPattern;
+	}
+	
+	public Double getIntersectionLengthMin() {
+		return intersectionLengthMin;
+	}
+
+	public void setIntersectionLengthMin(Double intersectionLengthMin) {
+		this.intersectionLengthMin = intersectionLengthMin;
+	}
+
+	public Double getIntersectionLengthMax() {
+		return intersectionLengthMax;
+	}
+
+	public void setIntersectionLengthMax(Double intersectionLengthMax) {
+		this.intersectionLengthMax = intersectionLengthMax;
+	}
+	
+	public Double getCarLengthMin() {
+		return carLengthMin;
+	}
+
+	public void setCarLengthMin(Double carLengthMin) {
+		this.carLengthMin = carLengthMin;
+	}
+
+	public Double getcarLengthMax() {
+		return carLengthMax;
+	}
+
+	public void setCarLengthMax(Double carLengthMax) {
+		this.carLengthMax = carLengthMax;
+	}
+	
 
 	public double getCarMaxVelocityMax() {
 		return carMaxVelocityMax;
@@ -70,16 +117,15 @@ public class PropertyBag {
 	}
 
 	public double getCarStopDistanceMax() {
-		// TODO Auto-generated method stub
-		return 0;
+		return carStopDistanceMax;
 	}
 
 	public double getCarStopDistanceMin() {
 		return carStopDistanceMin;
 	}
 
-	public double getCarBrakeDistanceMax() {
-		return carStopDistanceMax;		
+	public double getcarBrakeDistanceMax() {
+		return carBrakeDistanceMax;		
 	}
 
 	public double getCarBrakeDistanceMin() {
@@ -141,10 +187,21 @@ public class PropertyBag {
 	public void setRunTime(Double runTime) {
 		this.runTime = runTime;
 	}
+	
+	public Double getCarGenerationDelayMin() {
+		return carGenerationDelayMin;
+	}
 
-	public Object getTrafficPattern() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setCarGenerationDelayMin(Double carGenerationDelayMin) {
+		this.carGenerationDelayMin = carGenerationDelayMin;
+	}
+	
+	public Double getCarGenerationDelayMax() {
+		return carGenerationDelayMax;
+	}
+
+	public void setCarGenerationDelayMax(Double carGenerationDelayMax) {
+		this.carGenerationDelayMax = carGenerationDelayMax;
 	}
 	
 

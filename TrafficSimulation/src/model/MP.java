@@ -1,8 +1,6 @@
 package model;
 
-/**
- * Static class for model parameters.
- */
+// Static class for model parameters.
 public class MP {
 	private MP() {}
 	/** Length of cars, in meters */
