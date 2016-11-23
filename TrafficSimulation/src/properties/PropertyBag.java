@@ -13,7 +13,7 @@ public class PropertyBag {
 
 	private TrafficType trafficPattern = TrafficType.ALTERNATE;
 	private Double carGenerationDelayMin = 5.0;
-	private Double carGenerationDelayMax = 9.0;
+	private Double carGenerationDelayMax = 10.0;
 	private Double roadLengthMin = 100.0;
 	private Double roadLengthMax = 200.0;
 	private Double intersectionLengthMin = 10.0;
@@ -32,7 +32,7 @@ public class PropertyBag {
 	private Double lightYellowTimeMax = 5.0;
 	
 	private Double timeStep = 0.5;
-	private Double runTime = 500.0;
+	private Double runTime = 1000.0;
 	private Integer gridRow = 2;
 	private Integer gridColumn = 3;
 
@@ -115,6 +115,14 @@ public class PropertyBag {
 	public double getCarMaxVelocityMin() {
 		return carMaxVelocityMin;
 	}
+	
+	public void setCarMaxVelocityMin(Double carMaxVelocityMin) {
+		this.carMaxVelocityMin = carMaxVelocityMin;
+	}
+
+	public void setCarMaxVelocityMax(Double carMaxVelocityMax) {
+		this.carMaxVelocityMax = carMaxVelocityMax;
+	}
 
 	public double getCarStopDistanceMax() {
 		return carStopDistanceMax;
@@ -126,6 +134,22 @@ public class PropertyBag {
 
 	public double getcarBrakeDistanceMax() {
 		return carBrakeDistanceMax;		
+	}
+
+	public void setcarBrakeDistanceMin(Double carBrakeDistanceyMin) {
+		this.carBrakeDistanceMin = carBrakeDistanceyMin;
+	}
+	
+	public void setcarBrakeDistanceMax(double carBrakeDistanceyMax) {
+		this.carBrakeDistanceMax = carBrakeDistanceyMax;		
+	}
+
+	public void setCarStopDistanceMin(Double carStopDistanceyMin) {
+		this.carStopDistanceMin = carStopDistanceyMin;
+	}
+
+	public void setCarStopDistanceMax(Double carStopDistanceyMax) {
+		this.carStopDistanceMax = carStopDistanceyMax;
 	}
 
 	public double getCarBrakeDistanceMin() {
@@ -146,6 +170,14 @@ public class PropertyBag {
 	
 	public double getRoadLengthMin() {
 		return roadLengthMin;	
+	}
+	
+	public void setRoadLengthMax(Double roadLengthMax) {
+		this.roadLengthMax = roadLengthMax;
+	}
+	
+	public void setRoadLengthMin(Double roadLengthMin) {
+		this.roadLengthMin = roadLengthMin;
 	}
 	
 	public Double getLightGreenTimeMin() {
@@ -204,5 +236,23 @@ public class PropertyBag {
 		this.carGenerationDelayMax = carGenerationDelayMax;
 	}
 	
+	public String toString() {
+		StringBuilder b = new StringBuilder();
+		b.append("Simulation time step (seconds)        [" + this.getTimeStep() + "]\n");
+		b.append("Simulation run time (seconds)        [" + this.getRunTime() + "]\n");
+		b.append("Grid size (number of roads)          [row=" + this.getGridRow() + ",column=" + this.getGridColumn() + "]\n");
+		String pattern = (this.gettrafficPattern() == TrafficType.ALTERNATE ? "Alternating" : "Simple");
+		b.append("Traffic pattern                      [" + pattern + "]\n");
+		b.append("Car entry rate (seconds/car)         [min=" + this.getCarGenerationDelayMin() + ",max=" + this.getCarGenerationDelayMax() + "]\n");
+		b.append("Road segment length (meters)         [min=" + this.getRoadLengthMin() + ",max=" + this.getRoadLengthMax() + "]\n");
+		b.append("Intersection length (meters)         [min=" + this.getIntersectionLengthMin() + ",max=" + this.getIntersectionLengthMax() + "]\n");
+		b.append("Car length (meters)                  [min=" + this.getCarLengthMin() + ",max=" + this.getcarLengthMax() + "]\n");
+		b.append("Car maximum velocity (meters/second) [min=" + this.getCarMaxVelocityMin() + ",max=" + this.getCarMaxVelocityMax() + "]\n");
+		b.append("Car stop distance (meters)           [min=" + this.getCarStopDistanceMin() + ",max=" + this.getCarStopDistanceMax() + "]\n");
+		b.append("Car brake distance (meters)          [min=" + this.getCarBrakeDistanceMin() + ",max=" + this.getcarBrakeDistanceMax() + "]\n");
+		b.append("Traffic light green time (seconds)   [min=" + this.getLightGreenTimeMin() + ",max=" + this.getLightGreenTimeMax() + "]\n");
+		b.append("Traffic light yellow time (seconds)  [min=" + this.getTrafficLightYellowTimeMin() + ",max=" + this.getLightYellowTimeMax() + "]\n");
+		return b.toString();
+	}
 
 }
