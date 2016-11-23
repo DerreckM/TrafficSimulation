@@ -1,16 +1,20 @@
 package main;
 
+import ui.UI;
+
 //import model.Model;
 //import model.swing.SwingAnimatorBuilder;
 //import model.text.TextAnimatorBuilder;
 
-/**
- * A static class to demonstrate the visualization aspect of
- * simulation.
- */
+// A static class to demonstrate the visualization aspect of simulation.
+ 
 public class TrafficSimulation{
 	private TrafficSimulation() {}
 	public static void main(String[] args) {
+		UI ui;
+		ui = new ui.TextUI();
+		SimpleTrafficSimulation simulation = new SimpleTrafficSimulation(ui);
+		simulation.run();
 /*		
 		{
 			Model m = new Model(new TextAnimatorBuilder(), 0, 1);
