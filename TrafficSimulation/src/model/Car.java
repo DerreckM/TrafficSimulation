@@ -31,7 +31,7 @@ public class Car implements Agent {
 	private double timeStep;
 	private Integer roadsTraversed;
 	private Orientation orientation;
-	private PropertyBag propertyBag;
+	private PropertyBag propertyBag = PropertyBag.makePropertyBag();
 	private TimeServer time;
 	
 	//we need a constructor to create a new car object
