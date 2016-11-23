@@ -79,5 +79,6 @@ final class Road implements CarAcceptor {
 	public Set<Car> getCars() {
 		return cars;
 	}
+
 	
 }
