@@ -2,37 +2,36 @@ package model;
 
 import model.Data.Orientation;
 
-public class Sink implements RoadEnd {
+final class Sink implements RoadEnd {
 
 	@Override
 	public double getLastPosition() {
 		// TODO Auto-generated method stub
-		return 0;
+		return Double.POSITIVE_INFINITY;
 	}
 
 	@Override
 	public CarAcceptor getNextRoad(Orientation orientation) {
 		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void remove(Car car) {
+	public boolean remove(Car car) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean accept(Car car, double firstPosition) {
 		// TODO Auto-generated method stub
-
+		return true;
 	}
 
 	@Override
-	public boolean accept(Car car, double d) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public double distanceToObstacle(double firstPosition,
+	public double distanceToObstacle(double fromPosition,
 			Orientation orientation) {
 		// TODO Auto-generated method stub
-		return 0;
+		return Double.POSITIVE_INFINITY;
 	}
 
 	@Override
@@ -43,8 +42,12 @@ public class Sink implements RoadEnd {
 
 	@Override
 	public void setNextRoad(CarAcceptor l, Orientation ew) {
-		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 		
+	}
+	
+	public Orientation getOrientation() {
+		throw new UnsupportedOperationException();
 	}
 
 }
