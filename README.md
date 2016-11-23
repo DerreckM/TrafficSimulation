@@ -1,6 +1,6 @@
 The Traffic Simulation applies object-oriented software development skills to a significant but moderately-sized application. 
 The following sections describe the general behavior of the application, the simulation, and the deliverable requirements for the project. 
-![Alt text](/Users/derreckmansheim/Desktop/Java Eclipse Files/workspace/Traffic_Simulation/ScreenShot.png?raw=true "Screenshot")
+![Alt text](/Users/derreckmansheim/Desktop/Java Eclipse Files/workspace/Traffic_Simulation/ScreenShot.png "Screenshot")
 
 The O-O paradigm was founded in simulation and is an excellent means for exercising its strengths. The Simula programming language, 
 followed by the Smalltalk environment, together pioneered the development and dissemination of O-O languages, and were first and foremost 
